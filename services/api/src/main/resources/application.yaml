@@ -1,0 +1,4 @@
+server:
+  port: 5000
+youtube-api-client:
+  youtube-api-key: "${YOUTUBE_API_KEY}"
