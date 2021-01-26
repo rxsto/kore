@@ -6,9 +6,15 @@
       <GradleProjectSettings>
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleHome" value="C:/ProgramData/chocolatey/lib/gradle/tools/gradle-6.8" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/integrations" />
+            <option value="$PROJECT_DIR$/integrations/clients" />
+            <option value="$PROJECT_DIR$/integrations/clients/youtube" />
+            <option value="$PROJECT_DIR$/services" />
+            <option value="$PROJECT_DIR$/services/api" />
           </set>
         </option>
       </GradleProjectSettings>
