@@ -1,0 +1,26 @@
+version: v1.0
+name: Build Pipeline
+
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+
+blocks:
+  - name: Build and Push Docker Images
+    task:
+      secrets:
+        - name: github
+      jobs:
+        - name: Execute Google JIB
+          commands:
+            - checkout
+            - ./gradlew jib
+
+promotions:
+  - name: Staging Deploy
+    pipeline_file: staging.yaml
+    auto_promote:
+      when: "result = 'passed' and branch = 'develop'"
+  - name: Production Deploy
+    pipeline_file: production.yaml
