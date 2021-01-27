@@ -21,3 +21,4 @@ management:
             - livenessState
 youtube-api-client:
   youtube-api-key: "${YOUTUBE_API_KEY}"
+  youtube-channel-id: "${YOUTUBE_CHANNEL_ID}"
