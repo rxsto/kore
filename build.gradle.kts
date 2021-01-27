@@ -32,7 +32,7 @@ mapOf(
         "springBoot" to "com.google.flogger:flogger-slf4j-backend:${versions["springBoot"]}",
         "springBootAutoConfigure" to "org.springframework.boot:spring-boot-autoconfigure:${versions["springBootAutoConfigure"]}",
         "springBootConfigurationProcessor" to "org.springframework.boot:spring-boot-configuration-processor:${versions["springBootConfigurationProcessor"]}",
-        "springBootActuator" to "org.springframework.boot:spring-boot-actuator:${versions["springBootActuator"]}",
+        "springBootActuator" to "org.springframework.boot:spring-boot-actuator-autoconfigure:${versions["springBootActuator"]}",
         "springBootWebFlux" to "org.springframework:spring-webflux:${versions["springBootWebFlux"]}",
         "springBootStarterWebflux" to "org.springframework.boot:spring-boot-starter-webflux:${versions["springBootStarterWebflux"]}",
 
