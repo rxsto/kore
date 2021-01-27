@@ -1,26 +1,23 @@
 package to.rxs.kore.api.controllers;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
-import to.rxs.kore.integrations.clients.youtube.YouTubeClient;
-import to.rxs.kore.integrations.clients.youtube.models.transfer.ResponseDto;
+import to.rxs.kore.api.services.youtube.LatestVideoService;
+import to.rxs.kore.integrations.clients.youtube.models.Video;
 
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/videos")
 public class VideoController {
 
-    private final YouTubeClient youTubeClient;
-
-    public VideoController(YouTubeClient youTubeClient) {
-        this.youTubeClient = youTubeClient;
-    }
+    private final LatestVideoService latestVideoService;
 
     @GetMapping("/latest")
-    public Mono<ResponseDto> getLatestVideo(@RequestParam String channelId) {
-        return youTubeClient.getLatestVideo(channelId);
+    public Mono<Video> getLatestVideo() {
+        return latestVideoService.requestLatestVideo();
     }
 
 }
