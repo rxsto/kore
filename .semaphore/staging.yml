@@ -16,7 +16,7 @@ blocks:
         - name: KUBECONFIG
           value: /home/semaphore/.kube/config
         - name: HELMVALUES
-          value: /home/semaphore/kore/api-staging.yaml
+          value: /home/semaphore/kore/api-staging.yml
         - name: RELEASE_NAME
           value: api-staging
         - name: NAMESPACE

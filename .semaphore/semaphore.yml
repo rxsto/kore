@@ -19,8 +19,8 @@ blocks:
 
 promotions:
   - name: Staging Deploy
-    pipeline_file: staging.yaml
+    pipeline_file: staging.yml
     auto_promote:
       when: "result = 'passed' and branch = 'develop'"
   - name: Production Deploy
-    pipeline_file: production.yaml
+    pipeline_file: production.yml
