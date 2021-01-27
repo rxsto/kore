@@ -15,7 +15,6 @@ blocks:
         - name: Execute Google JIB
           commands:
             - checkout
-            - chmod +x gradlew
             - ./gradlew jib
 
 promotions:
