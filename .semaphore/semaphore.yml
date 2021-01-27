@@ -6,7 +6,7 @@ agent:
     type: e1-standard-2
   containers:
     - name: main
-      image: adoptopenjdk/openjdk15:jdk-15.0.1_9-ubuntu
+      image: rxsto/openjdk-15-base:latest
 
 blocks:
   - name: Build and Push Docker Images
