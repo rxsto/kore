@@ -3,11 +3,9 @@ package to.rxs.kore.integrations.clients.youtube.models.transfer;
 import lombok.Data;
 
 @Data
-public class ResultIdDto {
+public abstract class ResourceDto {
 
     private String kind;
-    private String videoId;
-    private String channelId;
-    private String playlistId;
+    private String etag;
 
 }
