@@ -15,7 +15,7 @@ blocks:
         - name: Execute Google JIB
           commands:
             - checkout
-            - bash ./gradlew jib
+            - ./gradlew jib
 
 promotions:
   - name: Staging Deploy
