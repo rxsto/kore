@@ -1,0 +1,13 @@
+api:
+  name: api-staging
+  namespace: api-staging
+  port: 5000
+  replicaCount: 3
+  image:
+    group: docker.pkg.github.com
+    name: api
+    tag: latest
+  configMap: api-staging-config
+  probes:
+    liveness: /actuator/health/liveness
+    readiness: /actuator/health/readiness
