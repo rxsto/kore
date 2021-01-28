@@ -27,15 +27,15 @@ spec:
             httpGet:
               path: {{ .Values.api.probes.liveness }}
               port: {{ .Values.api.port }}
-            initialDelaySeconds: 2
+            initialDelaySeconds: 10
             failureThreshold: 1
             periodSeconds: 10
           readinessProbe:
             httpGet:
               path: {{ .Values.api.probes.readiness }}
               port: {{ .Values.api.port }}
-            initialDelaySeconds: 2
-            failureThreshold: 5
-            periodSeconds: 1
+            initialDelaySeconds: 5
+            failureThreshold: 3
+            periodSeconds: 5
       imagePullSecrets:
         - name: {{ .Values.secret }}
