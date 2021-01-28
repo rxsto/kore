@@ -4,7 +4,9 @@ name: Staging Deploy Pipeline
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+  containers:
+    - name: main
+      image: rxsto/openjdk-15-base:latest
 
 blocks:
   - name: Deploy to Kubernetes Cluster
@@ -24,7 +26,6 @@ blocks:
       jobs:
         - name: Execute Helm Upgrade
           commands:
-            - rm -rf ./kore/
             - checkout
             - curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
             - helm upgrade -i $RELEASE_NAME ./chart
