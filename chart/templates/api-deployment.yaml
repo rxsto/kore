@@ -37,3 +37,5 @@ spec:
             initialDelaySeconds: 2
             failureThreshold: 5
             periodSeconds: 1
+      imagePullSecrets:
+        - name: {{ .Values.secret }}

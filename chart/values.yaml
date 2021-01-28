@@ -1,5 +1,6 @@
 namespace: kore
 packages: docker.pkg.github.com/rxsto/
+secret: kore-github-packages
 api:
   name: api
   replicas: 3

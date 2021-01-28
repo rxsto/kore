@@ -1,5 +1,6 @@
 namespace: kore-staging
 packages: docker.pkg.github.com/rxsto/
+secret: kore-staging-github-packages
 api:
   name: api-staging
   replicas: 3

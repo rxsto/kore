@@ -43,3 +43,6 @@ hs_err_pid*
 
 # env
 .env/
+
+# registry credentials
+regcred*.yaml
