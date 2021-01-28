@@ -5,26 +5,26 @@ agent:
   machine:
     type: e1-standard-2
   containers:
-    - name: main
-      image: rxsto/openjdk-15-base:latest
+  - name: main
+    image: rxsto/openjdk-15-base:latest
 
 blocks:
-  - name: Build and Push Docker Images
-    task:
-      secrets:
-        - name: github
-      jobs:
-        - name: Execute Google JIB
-          commands:
-            - checkout
-            - cache restore
-            - ./gradlew jib
-            - cache store
+- name: Build and Push Docker Images
+  task:
+    secrets:
+    - name: github
+    jobs:
+    - name: Execute Google JIB
+      commands:
+      - checkout
+      - cache restore
+      - ./gradlew jib
+      - cache store
 
 promotions:
-  - name: Staging Deploy
-    pipeline_file: staging.yml
-    auto_promote:
-      when: "result = 'passed' and branch = 'develop'"
-  - name: Production Deploy
-    pipeline_file: production.yml
+- name: Staging Deploy
+  pipeline_file: staging.yml
+  auto_promote:
+    when: "result = 'passed' and branch = 'develop'"
+- name: Production Deploy
+  pipeline_file: production.yml

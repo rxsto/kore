@@ -9,6 +9,6 @@ spec:
   selector:
     app: { { .Values.api.name } }
   ports:
-    - protocol: TCP
-      port: { { .Values.api.port } }
-      targetPort: { { .Values.api.port } }
+  - protocol: TCP
+    port: { { .Values.api.port } }
+    targetPort: { { .Values.api.port } }
