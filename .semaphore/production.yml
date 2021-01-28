@@ -11,12 +11,12 @@ blocks:
     task:
       secrets:
         - name: kubeconfig
-        - name: helmvalues
+        - name: helmvalues-kore
       env_vars:
         - name: KUBECONFIG
           value: /home/semaphore/.kube/config
         - name: HELMVALUES
-          value: /home/semaphore/kore/api.yaml
+          value: /home/semaphore/kore/values.yaml
         - name: RELEASE_NAME
           value: api
         - name: NAMESPACE

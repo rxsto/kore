@@ -4,9 +4,9 @@ api:
   port: 5000
   replicaCount: 3
   image:
-    group: docker.pkg.github.com
+    group: docker.pkg.github.com/rxsto/
     name: api
-    tag: latest
+    tag: :latest
   configMap: api-config
   probes:
     liveness: /actuator/health/liveness

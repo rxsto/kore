@@ -18,9 +18,9 @@ spec:
     spec:
       containers:
         - name: { { .Values.api.name } }
-          image: { { .Values.api.image.group } }/{ { .Values.api.image.name } }:{ { .Values.api.image.tag } }
+          image: { { .Values.api.image.group } }{ { .Values.api.image.name } }{ { .Values.api.image.tag } }
           ports:
-              - containerPort: { { .Values.api.port } }
+            - containerPort: { { .Values.api.port } }
           envFrom:
             - configMapRef:
               name: { { .Values.api.configMap } }
