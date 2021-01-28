@@ -22,7 +22,7 @@ spec:
             - containerPort: {{ .Values.api.port }}
           envFrom:
             - configMapRef:
-              name: {{ .Values.api.config }}
+                name: {{ .Values.api.config }}
           livenessProbe:
             httpGet:
               path: {{ .Values.api.probes.liveness }}
