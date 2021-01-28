@@ -20,9 +20,9 @@ blocks:
         - name: HELMVALUES
           value: /home/semaphore/kore/values-staging.yaml
         - name: RELEASE_NAME
-          value: api-staging
+          value: kore-staging
         - name: NAMESPACE
-          value: api-staging
+          value: kore-staging
       jobs:
         - name: Execute Helm Upgrade
           commands:
