@@ -7,7 +7,6 @@ metadata:
     app: {{ .Values.api.name }}
 spec:
   replicas: {{ .Values.api.replicas }}
-  serviceName: {{ .Values.api.name }}
   selector:
     matchLabels:
       app: {{ .Values.api.name }}
