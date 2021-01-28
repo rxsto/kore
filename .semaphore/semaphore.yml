@@ -17,7 +17,9 @@ blocks:
         - name: Execute Google JIB
           commands:
             - checkout
+            - cache restore
             - ./gradlew jib
+            - cache store
 
 promotions:
   - name: Staging Deploy
