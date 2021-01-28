@@ -1,5 +1,5 @@
 namespace: kore
-packages: docker.pkg.github.com/rxsto/
+packages: docker.pkg.github.com/rxsto/kore/
 secret: kore-github-packages
 api:
   name: api
