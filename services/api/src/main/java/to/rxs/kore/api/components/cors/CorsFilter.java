@@ -1,21 +1,24 @@
 package to.rxs.kore.api.components.cors;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.web.cors.CorsConfiguration;
-import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-import org.springframework.web.cors.reactive.CorsConfigurationSource;
-import org.springframework.web.cors.reactive.CorsWebFilter;
+import org.springframework.core.Ordered;
+import org.springframework.core.annotation.Order;
+import org.springframework.stereotype.Component;
+import org.springframework.web.server.ServerWebExchange;
+import org.springframework.web.server.WebFilter;
+import org.springframework.web.server.WebFilterChain;
+import reactor.core.publisher.Mono;
 
-public class CorsFilter {
+@Order(Ordered.HIGHEST_PRECEDENCE)
+@Component
+public class CorsFilter implements WebFilter {
 
-    @Bean
-    public CorsWebFilter corsWebFilter() {
-        var cors = new CorsConfiguration();
-        cors.applyPermitDefaultValues();
-
-        var source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", cors);
-        return new CorsWebFilter((CorsConfigurationSource) source);
+    @Override
+    public Mono<Void> filter(ServerWebExchange exchange, WebFilterChain chain) {
+        var headers = exchange.getResponse().getHeaders();
+        headers.add("Access-Control-Allow-Origin", "*");
+        headers.add("Access-Control-Allow-Methods", "*");
+        headers.add("Access-Control-Allow-Headers", "*");
+        return chain.filter(exchange);
     }
 
 }
