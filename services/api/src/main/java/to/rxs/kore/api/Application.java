@@ -9,7 +9,7 @@ import reactor.core.publisher.Hooks;
 
 @Flogger
 @EnableConfigurationProperties
-@ComponentScan("to.rxs")
+//@ComponentScan("to.rxs")
 @SpringBootApplication
 public class Application {
 
@@ -17,4 +17,5 @@ public class Application {
         Hooks.onOperatorDebug();
         SpringApplication.run(Application.class, args);
     }
+
 }
