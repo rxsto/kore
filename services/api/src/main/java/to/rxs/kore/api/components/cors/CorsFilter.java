@@ -1,6 +1,5 @@
 package to.rxs.kore.api.components.cors;
 
-import lombok.extern.flogger.Flogger;
 import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;
 import org.springframework.web.server.WebFilter;
