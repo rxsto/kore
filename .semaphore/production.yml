@@ -1,0 +1,34 @@
+version: v1.0
+name: Staging Deploy Pipeline
+
+agent:
+  machine:
+    type: e1-standard-2
+  containers:
+  - name: main
+    image: rxsto/openjdk-15-base:latest
+
+blocks:
+- name: Deploy to Kubernetes Cluster
+  task:
+    secrets:
+    - name: kubeconfig
+    - name: helmvalues-kore
+    env_vars:
+    - name: KUBECONFIG
+      value: /home/semaphore/.kube/config
+    - name: HELMVALUES
+      value: /home/semaphore/kore/values.yaml
+    - name: RELEASE_NAME
+      value: kore
+    - name: NAMESPACE
+      value: kore
+    jobs:
+    - name: Execute Helm Upgrade
+      commands:
+      - checkout
+      - curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
+      - helm upgrade -i $RELEASE_NAME ./chart
+        --set api.image.tag=:${SEMAPHORE_GIT_SHA}
+        --namespace $NAMESPACE
+        --values $HELMVALUES

@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.api.name }}
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: {{ .Values.api.name }}
+spec:
+  replicas: {{ .Values.api.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Values.api.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.api.name }}
+    spec:
+      containers:
+        - name: {{ .Values.api.name }}
+          image: {{ .Values.packages }}{{ .Values.api.image.name }}{{ .Values.api.image.tag }}
+          ports:
+            - containerPort: {{ .Values.api.port }}
+          envFrom:
+            - configMapRef:
+                name: {{ .Values.api.config }}
+          livenessProbe:
+            httpGet:
+              path: {{ .Values.api.probes.liveness }}
+              port: {{ .Values.api.port }}
+            initialDelaySeconds: 10
+            failureThreshold: 1
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: {{ .Values.api.probes.readiness }}
+              port: {{ .Values.api.port }}
+            initialDelaySeconds: 5
+            failureThreshold: 3
+            periodSeconds: 5
+      imagePullSecrets:
+        - name: {{ .Values.secret }}

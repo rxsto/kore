@@ -1,0 +1,24 @@
+server:
+  port: 5000
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - health
+          - info
+          - metrics
+  endpoint:
+    health:
+      probes:
+        enabled: true
+      group:
+        readiness:
+          includes:
+            - readinessState
+        liveness:
+          includes:
+            - livenessState
+youtube-api-client:
+  youtube-api-key: "${YOUTUBE_API_KEY}"
+  youtube-channel-id: "${YOUTUBE_CHANNEL_ID}"
