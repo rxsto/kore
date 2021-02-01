@@ -22,4 +22,8 @@ public class LatestVideoService {
     public Mono<Video> requestLatestVideo() {
         return cachedVideo;
     }
+
+    public Mono<String> requestLatestVideoId() {
+        return cachedVideo.map(Video::getId);
+    }
 }

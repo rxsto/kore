@@ -20,4 +20,9 @@ public class VideoController {
         return latestVideoService.requestLatestVideo();
     }
 
+    @GetMapping("/latest/id")
+    public Mono<String> getLatestVideoId() {
+        return latestVideoService.requestLatestVideoId();
+    }
+
 }
