@@ -47,7 +47,7 @@ jib {
     }
 
     to {
-        image = "docker.pkg.github.com/" + System.getenv("SEMAPHORE_GIT_REPO_SLUG") + "/" + project.name
+        image = "ghcr.io/rxsto/kore-" + project.name
         tags = setOf(System.getenv("SEMAPHORE_GIT_SHA"))
         auth {
             username = "rxsto"

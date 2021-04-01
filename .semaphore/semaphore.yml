@@ -12,7 +12,7 @@ blocks:
 - name: Build and Push Docker Images
   task:
     secrets:
-    - name: github
+    - name: ghcr
     jobs:
     - name: Execute Google JIB
       commands:

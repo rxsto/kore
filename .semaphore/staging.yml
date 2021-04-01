@@ -13,16 +13,16 @@ blocks:
   task:
     secrets:
     - name: kubeconfig
-    - name: helmvalues-kore
+    - name: helmvalues
     env_vars:
     - name: KUBECONFIG
       value: /home/semaphore/.kube/config
     - name: HELMVALUES
-      value: /home/semaphore/kore/values-staging.yaml
+      value: /home/semaphore/.helm/values/kore-api-staging.yaml
     - name: RELEASE_NAME
       value: kore-staging
     - name: NAMESPACE
-      value: kore-staging
+      value: rxsto-staging
     jobs:
     - name: Execute Helm Upgrade
       commands:

@@ -1,12 +1,12 @@
-namespace: kore
-packages: docker.pkg.github.com/rxsto/kore/
-secret: kore-github-packages
+namespace: rxsto
+packages: ghcr.io/rxsto/kore-api
+secret: kore-ghcr
 api:
-  name: api
+  name: kore-api
   replicas: 3
-  config: api-config
+  config: kore-api-config
   image:
-    name: api
+    name: kore-api
     tag: :latest
   port: 5000
   probes:

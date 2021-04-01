@@ -1,12 +1,12 @@
-namespace: kore-staging
-packages: docker.pkg.github.com/rxsto/kore/
-secret: kore-staging-github-packages
+namespace: rxsto-staging
+packages: ghcr.io/rxsto/kore-api
+secret: kore-staging-ghcr
 api:
-  name: api-staging
+  name: kore-api-staging
   replicas: 3
-  config: api-staging-config
+  config: kore-api-staging-config
   image:
-    name: api
+    name: kore-api
     tag: :latest
   port: 5000
   probes:
