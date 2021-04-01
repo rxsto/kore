@@ -1,5 +1,5 @@
 namespace: rxsto
-packages: ghcr.io/rxsto/kore-api
+packages: ghcr.io/rxsto
 secret: kore-ghcr
 api:
   name: kore-api
