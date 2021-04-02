@@ -9,6 +9,8 @@ api:
     name: kore-api
     tag: :latest
   port: 5000
+    host: api.rxs.to
+    path: /
   probes:
     liveness: /actuator/health/liveness
     readiness: /actuator/health/readiness
