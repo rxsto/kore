@@ -4,9 +4,10 @@ name: Build Pipeline
 agent:
   machine:
     type: e1-standard-2
+    os_image: ubuntu1804
   containers:
   - name: main
-    image: rxsto/openjdk-15-base:latest
+    image: openjdk:15-buster
 
 blocks:
 - name: Build and Push Docker Images
