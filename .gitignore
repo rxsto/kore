@@ -46,3 +46,6 @@ hs_err_pid*
 
 # registry credentials
 regcred*.yaml
+
+# gcr keyfile
+keyfile.json
