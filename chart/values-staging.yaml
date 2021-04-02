@@ -1,6 +1,6 @@
 namespace: rxsto-staging
 packages: ghcr.io/rxsto
-secret: kore-staging-ghcr
+secret: rxsto-staging-gcr
 api:
   name: kore-api-staging
   replicas: 3

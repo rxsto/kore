@@ -47,12 +47,8 @@ jib {
     }
 
     to {
-        image = "ghcr.io/rxsto/kore-" + project.name
+        image = "gcr.io/rxs-to/kore-" + project.name
         tags = setOf(System.getenv("SEMAPHORE_GIT_SHA"))
-        auth {
-            username = "rxsto"
-            password = System.getenv("GITHUB_TOKEN")
-        }
     }
 
     container {

@@ -1,6 +1,6 @@
 namespace: rxsto
 packages: ghcr.io/rxsto
-secret: kore-ghcr
+secret: rxsto-gcr
 api:
   name: kore-api
   replicas: 3
