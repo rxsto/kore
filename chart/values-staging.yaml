@@ -1,14 +1,16 @@
-namespace: kore-staging
-packages: docker.pkg.github.com/rxsto/kore/
-secret: kore-staging-github-packages
+namespace: rxsto-staging
+packages: gcr.io/rxs-to/
+secret: rxsto-staging-gcr
 api:
-  name: api-staging
+  name: kore-api-staging
   replicas: 3
-  config: api-staging-config
+  config: kore-api-staging-config
   image:
-    name: api
+    name: kore-api
     tag: :latest
   port: 5000
+  host: api-staging.rxs.to
+  path: /
   probes:
     liveness: /actuator/health/liveness
     readiness: /actuator/health/readiness

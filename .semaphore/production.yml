@@ -4,25 +4,26 @@ name: Staging Deploy Pipeline
 agent:
   machine:
     type: e1-standard-2
+    os_image: ubuntu1804
   containers:
   - name: main
-    image: rxsto/openjdk-15-base:latest
+    image: openjdk:15-buster
 
 blocks:
 - name: Deploy to Kubernetes Cluster
   task:
     secrets:
     - name: kubeconfig
-    - name: helmvalues-kore
+    - name: helmvalues
     env_vars:
     - name: KUBECONFIG
       value: /home/semaphore/.kube/config
     - name: HELMVALUES
-      value: /home/semaphore/kore/values.yaml
+      value: /home/semaphore/kore.yaml
     - name: RELEASE_NAME
       value: kore
     - name: NAMESPACE
-      value: kore
+      value: rxsto
     jobs:
     - name: Execute Helm Upgrade
       commands:
