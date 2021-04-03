@@ -45,7 +45,7 @@ mapOf(
 /* A plugins scope for pre-defining plugin versions */
 plugins {
     id("io.freefair.lombok") version "5.3.0" apply false
-    id("com.google.cloud.tools.jib") version "2.7.1" apply false
+    id("com.google.cloud.tools.jib") version "2.8.0" apply false
 }
 
 /* A project scope for pre-defining the repository handler and the group name */
